@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Avgangers"
 date:   2021-08-17 00:00:00 -0500
 categories: ML-ART
@@ -8,7 +7,7 @@ permalink: /avgangers
 
 ![avgangers-01.gif](/assets/avgangers-01.gif)
 
-Well well well.. if it isn't the Avgangers.
+Well well well.. if it isn't the _Avgangers_.
 
 ![avgangers-02.gif](/assets/avgangers-02.gif)
 
