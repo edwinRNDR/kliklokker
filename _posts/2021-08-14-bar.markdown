@@ -1,0 +1,13 @@
+---
+title:  "Bar"
+date:   2021-08-14 00:00:00 +0200
+categories: ML-ART
+permalink: /bar
+---
+
+I miss going to bars without all the stress.
+
+![bar-01](/assets/bar-01.gif)
+
+![bar-02](/assets/bar-02.gif)
+
