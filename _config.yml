@@ -24,7 +24,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: voorbeeld
 github_username: edwinRNDR
 
-minimal_mistakes_skin: default
+minimal_mistakes_skin: dark
 search: true
 
 permalink: /:categories/:title/
