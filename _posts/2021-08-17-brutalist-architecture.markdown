@@ -13,3 +13,8 @@ Fluid, brutalist buildings
 
 ![brutalist-architecture-03](assets/brutalist-architecture-03.gif)
 
+![brutalist-architecture-04](assets/brutalist-architecture-04.gif)
+
+![brutalist-architecture-05](assets/brutalist-architecture-05.gif)
+
+![brutalist-architecture-06](assets/brutalist-architecture-06.gif)
