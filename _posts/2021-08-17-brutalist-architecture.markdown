@@ -1,6 +1,6 @@
 ---
 title:  "Brutalist Architecture"
-date:   2021-08-17 00:00:00 +0200
+date:   2021-08-17 20:00:00 +0200
 categories: ML-ART
 permalink: /brutalist-architecture
 ---
