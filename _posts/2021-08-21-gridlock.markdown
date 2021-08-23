@@ -7,7 +7,7 @@ permalink: /gridlock
 
 Expressionistic animations that resemble aerial imagery of cities with traffic.
 
-The animations consist of 34 frames and loop. Created using a custom prompt image and a text prompt that is fed into a CLIP guided diffusion process on a VQGAN model.
+The animations consist of 34 frames and loop. Created using a custom prompt image and a text prompt that is fed into a CLIP + VQGAN guided diffusion process.
 
 ![gridlock-01](assets/gridlock-01.gif)
 
