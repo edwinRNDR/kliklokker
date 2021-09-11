@@ -1,0 +1,18 @@
+---
+title:  "V/FLD-01"
+date:   2021-09-11 09:30:00 +0200
+categories: generative-art
+permalink: /v-fld-01
+---
+
+A series of short looping animations made using OPENRNDR and the new
+functional composition based noise framework in `orx-noise`. `orx-temporal-blur` was used
+with a tinting matrix to achieve the chromatic aberration effect.
+
+[![v-fld-01-01](https://cloudflare-ipfs.com/ipfs/bafybeic6yjc55zkasu25eox6lxuba6ptj3tgnlipbsoowipbs27kqml7oa)](https://hicetnunc.xyz/objkt/286042 "V/FLD-01-01")
+
+[![v-fld-01-02](https://cloudflare-ipfs.com/ipfs/bafybeie74chnykottwb4s67esb34obkrsfvz53fzs3xccuji36z7k5sbhe)](https://hicetnunc.xyz/objkt/288707 "V/FLD-01-02")
+ 
+[![v-fld-01-03](https://cloudflare-ipfs.com/ipfs/bafybeifvztg6bfnnccay2zeyjwnxitkngc4lzbszghrfpok6yhiins4rby)](https://hicetnunc.xyz/objkt/288794 "V/FLD-01-03")
+
+[![v-fld-01-04](https://cloudflare-ipfs.com/ipfs/bafybeielsncamfflulszht366q363tajfaq5ci3iklaakgzzhwrc425zda)](https://hicetnunc.xyz/objkt/288850 "V/FLD-01-04")
