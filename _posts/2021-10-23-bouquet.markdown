@@ -4,11 +4,16 @@ date:   2021-10-23 18:35:00 +0200
 categories: generative-art
 permalink: /bouquet
 ---
+A simple bouquet print art generator made for a flower themed procedural generation challenge. 
 
 ![bouquet-01](/assets/bouquet-01.png)
+
 ![bouquet-02](/assets/bouquet-02.png)
+
 ![bouquet-03](/assets/bouquet-03.png)
+
 ![bouquet-04](/assets/bouquet-04.png)
+
 ![bouquet-05](/assets/bouquet-05.png)
 
 ```kotlin
