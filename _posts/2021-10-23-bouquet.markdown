@@ -1,0 +1,131 @@
+---
+title:  "Bouquet"
+date:   2021-10-23 18:35:00 +0200
+categories: generative-art
+permalink: /bouquet
+---
+
+![bouquet-01](/assets/bouquet-01.png)
+![bouquet-02](/assets/bouquet-02.png)
+![bouquet-03](/assets/bouquet-03.png)
+![bouquet-04](/assets/bouquet-04.png)
+![bouquet-05](/assets/bouquet-05.png)
+
+```kotlin
+// Bouquet generator by Edwin Jakobs (@voorbeeld)
+// don't be a jerk license
+import org.openrndr.application
+import org.openrndr.color.ColorRGBa
+import org.openrndr.extra.noise.*
+import org.openrndr.extra.shapes.hobbyCurve
+import org.openrndr.ffmpeg.MP4Profile
+import org.openrndr.ffmpeg.ScreenRecorder
+import org.openrndr.math.Vector2
+import org.openrndr.shape.*
+import kotlin.math.*
+import kotlin.random.Random
+
+fun main() {
+    application {
+        configure {
+            width = 720
+            height = 1080
+        }
+
+        fun wobblyCircle(center: Vector2, radius: Double, random: Random = Random.Default): ShapeContour {
+            return hobbyCurve(
+                Circle(center, radius).contour.equidistantPositions(20).take(20).map {
+                    it + Vector2.uniformRing(0.0, 50.0, random)
+                }, closed = true
+            )
+        }
+
+        fun vase(center: Vector2): Shape {
+            val base = Circle(center, 150.0).shape
+                .union(Ellipse(center + Vector2(0.0, 150.0), 100.0, 50.0).shape)
+                .union(Rectangle.fromCenter(center - Vector2(0.0, 200.0), 200.0, 200.0).shape)
+                .contours.first()
+
+            val distorted = base.equidistantPositions(60).map {
+                it + Vector2.uniformRing(0.0, 5.0)
+            }
+            return hobbyCurve(distorted, closed = true).shape
+        }
+
+        program {
+            extend(ScreenRecorder()) {
+                frameRate = 1
+                maximumDuration = 120.0
+                (profile as MP4Profile).apply {
+                    userArguments = arrayOf("-tune", "animation")
+                }
+            }
+            extend {
+                val initialBouquet = wobblyCircle(Vector2(width / 2.0, height / 2.0 - 200.0), 300.0).shape
+                val pistils = initialBouquet.scatter(80.0, distanceToEdge = 40.0)
+                val corollae = pistils.map { Circle(it, 80.0).shape }
+                val bouquet = corollae.drop(1).fold(corollae.first()) { a, b -> a.union(b) }
+                val vignette = drawer.bounds.shape.difference(bouquet)
+                val vase = vase(Vector2(width / 2.0, height - 300.0)).shape.difference(bouquet)
+
+                val flowField = Array(width * height) { Vector2.ZERO }
+                for (pistil in pistils) {
+                    for (y in 0 until height) {
+                        for (x in 0 until width) {
+                            val d = Vector2(pistil.x - x, pistil.y - y)
+                            val n = d.normalized.perpendicular() * exp(-d.length * 0.2)
+                            flowField[y * width + x] += n
+                        }
+                    }
+                }
+                for (i in flowField.indices) {
+                    flowField[i] = flowField[i].normalized
+                }
+
+                drawer.clear(ColorRGBa.WHITE)
+                drawer.stroke = ColorRGBa.BLACK
+
+                val r = Random(0)
+                val stigmae = pistils.map { Circle(it, r.nextDouble(10.0, 30.0)) }
+
+                drawer.lineSegments(stigmae.flatMap {
+                    it.shape.scatter(r.nextDouble(4.0, 5.0), random = r, distanceToEdge = 2.0)
+                }.map {
+                    val x = it.x.roundToInt().coerceIn(0, width - 1)
+                    val y = it.y.roundToInt().coerceIn(0, height - 1)
+                    val n = flowField[y * width + x]
+                    val start = Vector2(x * 1.0, y * 1.0)
+                    val end = start + n * 1.5
+                    LineSegment(start, end)
+                })
+
+                drawer.lineSegments(bouquet.scatter(Random.nextDouble(3.0, 8.0)).mapNotNull {
+                    val x = it.x.roundToInt().coerceIn(0, width - 1)
+                    val y = it.y.roundToInt().coerceIn(0, height - 1)
+                    val n = flowField[y * width + x]
+                    val start = Vector2(x * 1.0, y * 1.0)
+                    val end = start + n * 4.5
+                    if (stigmae.none { s -> s.contains(start) || s.contains(end) }) {
+                        LineSegment(start, end)
+                    } else {
+                        null
+                    }
+                })
+
+                drawer.lineSegments(vignette.scatter(Random.nextDouble(3.0, 12.0), distanceToEdge = 6.0).mapNotNull {
+                    val x = it.x.roundToInt().coerceIn(0, width - 1)
+                    val y = it.y.roundToInt().coerceIn(0, height - 1)
+                    val n = if (y < 800.0) flowField[y * width + x] else flowField[y * width + x].perpendicular()
+                    val start = Vector2(x * 1.0, y * 1.0)
+                    val end = start + n * 4.5
+                    if (!vase.contains(start) && !vase.contains(end)) {
+                        LineSegment(start, end)
+                    } else {
+                        null
+                    }
+                })
+            }
+        }
+    }
+}
+```
