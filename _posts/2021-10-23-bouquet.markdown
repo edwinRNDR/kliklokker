@@ -3,6 +3,7 @@ title:  "Bouquet"
 date:   2021-10-23 18:35:00 +0200
 categories: generative-art
 permalink: /bouquet
+classes: wide
 ---
 A simple bouquet print art generator made for the flower themed [#WCCChallenge](https://twitter.com/hashtag/WCCChallenge?src=hashtag_click) generation challenge. The generated output is ready-to-plot vectors.
 
