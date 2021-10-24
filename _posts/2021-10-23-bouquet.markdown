@@ -4,7 +4,7 @@ date:   2021-10-23 18:35:00 +0200
 categories: generative-art
 permalink: /bouquet
 ---
-A simple bouquet print art generator made for a flower themed procedural generation challenge. The generated output is ready-to-plot vectors.
+A simple bouquet print art generator made for the flower themed [#WCCChallenge](https://twitter.com/hashtag/WCCChallenge?src=hashtag_click) generation challenge. The generated output is ready-to-plot vectors.
 
 ![bouquet-01](/assets/bouquet-01.png)
 
@@ -15,6 +15,10 @@ A simple bouquet print art generator made for a flower themed procedural generat
 ![bouquet-04](/assets/bouquet-04.png)
 
 ![bouquet-05](/assets/bouquet-05.png)
+
+<video muted autoplay controls>
+    <source src="/assets/flowers-01.mp4" type="video/mp4">
+</video>
 
 ## Generator outline
 
@@ -179,3 +183,4 @@ fun main() {
     }
 }
 ```
+
