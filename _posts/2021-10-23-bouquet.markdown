@@ -17,6 +17,10 @@ A simple bouquet print art generator made for the flower themed [#WCCChallenge](
 
 ![bouquet-05](/assets/bouquet-05.png)
 
+## Video
+
+A 2 minute video that shows 120 non-cherry-picked bouquets. 
+
 <video muted autoplay controls>
     <source src="/assets/flowers-01.mp4" type="video/mp4">
 </video>
