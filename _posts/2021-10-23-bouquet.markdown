@@ -5,7 +5,7 @@ categories: generative-art
 permalink: /bouquet
 classes: wide
 ---
-A simple bouquet print art generator made for the flower themed [#WCCChallenge](https://twitter.com/hashtag/WCCChallenge?src=hashtag_click) generation challenge. The generated output is ready-to-plot vectors.
+A simple bouquet print art generator made for the flower themed [#WCCChallenge](https://twitter.com/hashtag/WCCChallenge?src=hashtag_click). The generated output is ready-to-plot vectors.
 
 ![bouquet-01](/assets/bouquet-01.png)
 
